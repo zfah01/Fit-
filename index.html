@@ -8,10 +8,18 @@
     <title>Home</title>
     <link rel="apple-touch-icon" sizes="128x128" href="img/icon101.png">
     <link rel="icon" sizes="192x192" href="img/icon101.png">
-    <link href="navBar.html" rel="import"/>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
+<div id="nav-placeholder">
 
+</div>
+
+<script>
+    $(function(){
+        $("#nav-placeholder").load("navBar.html");
+    });
+</script>
 
 <script src="model.js"></script>
 <script src="view.js"></script>
