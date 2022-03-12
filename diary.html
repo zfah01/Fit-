@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0", shrink-to-fit=no" />
@@ -9,11 +9,33 @@
     <link rel="apple-touch-icon" sizes="128x128" href="img/icon101.png">
     <link rel="icon" sizes="192x192" href="img/icon101.png">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="diary.css">
+
 </head>
 <body>
+
+
+
+
 <div id="nav-placeholder">
 
 </div>
+<header id="title">
+    <h1>
+        Diary (to do list)
+    </h1>
+</header>
+<form id="form">
+    <input type="text" class="diaryInput">
+    <button class="diaryButton" type="submit">Add  </button>
+
+</form>
+<div class="cont">
+    <ul class="list">
+
+    </ul>
+</div>
+
 
 <script>
     $(function(){
