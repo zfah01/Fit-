@@ -1,0 +1,26 @@
+
+
+#title,form{
+    padding-top: 4rem;
+    font-family: 'Varela Round', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+
+form input{
+    padding:0.4rem;
+    border: 2px solid #ccc;
+    background: white;
+
+
+}
+form button{
+    border: black;
+    padding:1rem;
+    background:#89cff0;
+
+
+
+}
+
