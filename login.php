@@ -46,49 +46,8 @@ if ($authenticated && isset($_SESSION["user_id"]))
     <link rel="icon" sizes="192x192" href="img/icon101.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        h1{
-            text-align: center;
-            font-size: 80px;
-            font-family: 'Varela Round', sans-serif;
-            margin-top: 200px;
-        }
+    <link rel="stylesheet" href="login.css">
 
-        button{
-            width: 100px;
-            height: 25px;
-            font-size: 15px;
-            margin: auto;
-        }
-        .email_login{
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 18px;
-            width: 280px;
-            border-color: #1c9ad5;
-            font-family: 'Varela Round', sans-serif;
-        }
-        .password_login{
-            margin-left: auto;
-            margin-right: 4px;
-            font-size: 18px;
-            width: 244px;
-            border-color: #1c9ad5;
-            font-family: 'Varela Round', sans-serif;
-        }
-        .empw{
-            text-align: center;
-            font-size: 20px;
-            font-family: 'Varela Round', sans-serif;
-        }
-        body{
-            margin-top: 100px;
-            text-align: center;
-        }
-
-
-    </style>
 </head>
 <h1>Fit+</h1>
 <body>

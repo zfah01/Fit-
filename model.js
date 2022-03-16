@@ -19,7 +19,7 @@ function Model() {
          if (navigator.userAgent.match(/MSIE/i)) {
              this.wnt.ie = true;
          }
-         if (this.wnt.mobile == true) {
+         if (this.wnt.mobile === true) {
              navigator.geolocation.watchPosition(this.getPosition, this.positionError, {
                  'enableHighAccuracy': true,
                  'timeout': 10000,
@@ -38,11 +38,11 @@ function Model() {
 
     };
     this.positionError = function(err){
-        if(err.code==1){
+        if(err.code === 1){
             alert("User denied geolocation.");
-        } else if(err.code==2){
+        } else if(err.code === 2){
             alert("Position unavailable.");
-        } else if(err.code==3){
+        } else if(err.code === 3){
             alert("Timeout expired.");
         } else {
             alert("ERROR:"+ err.message);
