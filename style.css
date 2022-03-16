@@ -158,8 +158,9 @@ html,body {
     margin-top: 2%;
 }
 
-#stepSection{
+#stepsSection{
     text-align: center;
+    color:darkslateblue;
 }
 #calTitle{
     margin-left:2%;
@@ -190,9 +191,9 @@ html,body {
     padding: 2%;
 }
 .blogImg{
-    height: 2.5rem;
+    height: 3rem;
     width: auto;
-    margin-left:25%;
+    float:right;
 
 
 }
