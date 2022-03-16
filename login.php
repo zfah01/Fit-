@@ -52,19 +52,41 @@ if ($authenticated && isset($_SESSION["user_id"]))
             text-align: center;
             font-size: 80px;
             font-family: 'Varela Round', sans-serif;
+            margin-top: 200px;
         }
-        .login{
-            text-align: center;
-            width: 70px;
-            height: 50px;
-            font-size: 30px;
-            padding: 0;
-            margin-left: 50%;
-            margin-right: 50%;
-        }
-        .register{
 
+        button{
+            width: 100px;
+            height: 25px;
+            font-size: 15px;
+            margin: auto;
         }
+        .email_login{
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 18px;
+            width: 280px;
+            border-color: #1c9ad5;
+            font-family: 'Varela Round', sans-serif;
+        }
+        .password_login{
+            margin-left: auto;
+            margin-right: 4px;
+            font-size: 18px;
+            width: 244px;
+            border-color: #1c9ad5;
+            font-family: 'Varela Round', sans-serif;
+        }
+        .empw{
+            text-align: center;
+            font-size: 20px;
+            font-family: 'Varela Round', sans-serif;
+        }
+        body{
+            margin-top: 100px;
+            text-align: center;
+        }
+
 
     </style>
 </head>
@@ -72,11 +94,11 @@ if ($authenticated && isset($_SESSION["user_id"]))
 <body>
 
 <form method="post" action="login.php">
-<label>Email <input type="text" class="email_login" name="email"></label> <br>
-<label>Password <input type="password" class="password_login" name="pw"></label>
-<button type="submit" class="login" id="login"> login </button><br>
+<label class="empw">Email: <input type="text" class="email_login" name="email"></label> <br>
+<label class="empw">Password: <input type="password" class="password_login" name="pw"></label><br><br>
+<button type="submit" id="login"> login </button><br><br>
 </form>
-<button class="register" id="register"> Register </button>
+<button id="register"> Register </button>
 
 
 <?php
