@@ -1,11 +1,21 @@
 'use strict';
 //Handles the HTML and CSS - all refs to HTML and CSS here
 
-function View() {
+class View {
 
-    this.showSteps = function(){
-       return document.getElementById("steps");
-    };
+    constructor() {
+    }
+
+
+    showSteps(){
+        return "steps";
+    }
+
+    callReadyListener(id , listener){
+        document.getElementById(id).addEventListener("ready", listener);
+
+    }
+
 
 
 }

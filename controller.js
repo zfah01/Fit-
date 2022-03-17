@@ -2,18 +2,15 @@
 /*global Model, View */
 //Joins Model and View
 // - the "plumbing"
-let view = new View();
-let model = new Model();
-let controller = null;
+const view = new View();
+const model = new Model();
 
-function Controller(){
-    this.loadSteps = function(){
-        view.showSteps().addEventListener("load", () =>{
+
+
+        view.callReadyListener(view.showSteps(), () =>{
+            model.checkBrowser();
             localStorage.clear();
             model.wnt.steps = 0;
-            model.stepsTaken(model.wnt.steps);
+            model.calcStepsTaken(model.wnt.steps);
         });
-    };
-    controller = new Controller();
-    window.addEventListener("load", controller.loadSteps);
-}
+

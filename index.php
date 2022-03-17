@@ -37,7 +37,7 @@ if (!($authenticated && isset($_SESSION["user_id"])))
 
     <div class="sections">
         <h2 id="stepTitle" class="titles">Your Steps for Today</h2>
-        <h3 id="stepSection" style="color:#ff0000;"><span id="steps"></span>/6000 Steps</h3>
+        <h3 id="stepsSection"><span id="steps"></span>/6000 Steps</h3>
     </div>
 
     <div class="sections">
