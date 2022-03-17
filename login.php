@@ -2,26 +2,30 @@
 session_start();
 $authenticated = isset($_SESSION["authenticated"]) && $_SESSION["authenticated"];
 
+
 $email = strip_tags(isset($_POST["email"]) ? $_POST["email"] : "");
 $pw = strip_tags(isset($_POST["pw"]) ? $_POST["pw"] : "");
+$login = isset($_POST["login"]);
 $ispost = ($_SERVER['REQUEST_METHOD'] === 'POST');
-//echo_error(password_hash("saeed123", PASSWORD_DEFAULT));
+$errormsg = "";
 
 if ($ispost) {
-    $result = get_password_from_db($email);
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_row();
-        $user_id = $row[0];
-        $hash = $row[1];
-        $authenticated = password_verify($pw, $hash);
-        if ($authenticated) {
-            $_SESSION["authenticated"] = true;
-            $_SESSION["user_id"] = $user_id;
-            header("Location: index.php");
-            die();
+    if ($login) {
+        $result = get_password_from_db($email);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_row();
+            $user_id = $row[0];
+            $hash = $row[1];
+            $authenticated = password_verify($pw, $hash);
+            if ($authenticated) {
+                $_SESSION["authenticated"] = true;
+                $_SESSION["user_id"] = $user_id;
+                header("Location: index.php");
+                die();
+            }
         }
+        $errormsg = "Incorrect email or password";
     }
-    echo_error("Incorrect email or password");
 }
 
 if ($authenticated && isset($_SESSION["user_id"]))
@@ -51,13 +55,16 @@ if ($authenticated && isset($_SESSION["user_id"]))
 </head>
 <h1>Fit+</h1>
 <body>
-
+<?php
+if ($errormsg)
+    echo_error($errormsg);
+?>
 <form method="post" action="login.php">
-<label class="empw">Email: <input type="text" class="email_login" name="email"></label> <br>
+<label class="empw">Email: <input type="text" class="email_login" name="email" required></label> <br>
 <label class="empw">Password: <input type="password" class="password_login" name="pw"></label><br><br>
-<button type="submit" id="login"> login </button><br><br>
+<button type="submit" id="login" name="login"> login </button><br><br>
 </form>
-<button id="register"> Register </button>
+<button id="register" onclick="location.href='register.php';" type="button"> Register </button>
 
 
 <?php
