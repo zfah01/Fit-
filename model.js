@@ -1,52 +1,67 @@
 'use strict';
 
+function Model() {
 
-class Model{
+    let wnt = {};
+    wnt.mobile = false;
+    wnt.ie = false;
+    wnt.steps = localStorage.steps;
 
-    constructor() {
-        this.wnt = {};
-        this.wnt.mobile = false;
-        this.ie = false;
-        this.steps = localStorage.steps;
+
+//check if device is mobile
+    if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i)
+    ) {
+        wnt.mobile = true;
     }
 
-    checkBrowser() {
-
-
-//check if mobile browser is supported
-        if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i)
-        ) {
-            this.wnt.mobile = true;
-        }
-        if (navigator.userAgent.match(/MSIE/i)) {
-            this.wnt.ie = true;
-        }
-        if (this.wnt.mobile === true) {
-            navigator.geolocation.watchPosition(this.getPosition, this.positionError,
-                {'enableHighAccuracy': true, 'timeout': 10000, 'maximumAge': 20000});
-        } else {
-            alert("Geo location is not available on this device");
-        }
+    if (wnt.mobile === true) {
+        navigator.geolocation.watchPosition(getPosition, positionError,
+            {'enableHighAccuracy': true, 'timeout': 10000, 'maximumAge': 20000});
+    } else {
+        alert("Geo location is not available on this device");
     }
 
-    /******** ONLOAD
+
+    //load the steps on screen
     $(function () {
         $('#steps').ready(function () {
-            localStorage.clear();
             wnt.steps = 0;
             calcStepsTaken(wnt.steps);
+            saveSteps();
+            setStepsTo0();
         });
-    });********/
+    });
 
-    getPosition(pos) {
-
-        //let metersTraveled = pos.coords.speed * 10;   //NOTE: gets speed every 10 seconds, so (pos.coords.speed * 10)  ...meterspersec * sec... = meters traveled    ...   /0.762 = steps
-        //!!!!! getting 8x the steps I should ... 2*10=20/0.762=26.2steps in 10 seconds???
-        let steps = pos.coords.speed / 0.762;
-        this.calcStepsTaken(steps);
+    function saveSteps() {
+        let steps = document.getElementById("steps").value;
+        localStorage.setItem("steps", steps);
+        console.log(localStorage.getItem("steps"));
+        return false;
     }
 
-    positionError(err) {
+    window.onload = function () {
+        document.getElementById("steps").value = localStorage.getItem("steps");
+    };
+
+
+    //set steps to 0 at midnight
+    function setStepsTo0() {
+        let d = new Date();
+        d.setHours(0,0,0,0);
+
+        if (d) {
+                localStorage.clear();
+                wnt.steps = 0;
+            }
+
+    }
+
+    function getPosition(pos) {
+        let steps = pos.coords.speed / 0.762;
+        calcStepsTaken(steps);
+    }
+
+    function positionError(err) {
         if (err.code === 1) {
             alert("User denied geolocation.");
         } else if (err.code === 2) {
@@ -58,13 +73,10 @@ class Model{
         }
     }
 
-    calcStepsTaken(steps) {
-        this.wnt.steps = this.wnt.steps + steps;
-        localStorage.steps = this.wnt.steps;
-        this.stepVal = (Math.round(this.wnt.steps)).toString();
-        document.getElementById("steps").innerHTML = this.stepVal;
-        //$('#steps').html('<span>' + Math.round(wnt.steps) + '/6000 Steps</span>');
+    function calcStepsTaken(steps) {
+        wnt.steps = wnt.steps + steps;
+        localStorage.steps = wnt.steps;
+        $('#steps').html('<span>' + Math.round(wnt.steps) + '/6000 Steps</span>');
     }
-
 
 }

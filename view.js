@@ -7,15 +7,4 @@ class View {
     }
 
 
-    showSteps(){
-        return "steps";
-    }
-
-    callReadyListener(id , listener){
-        document.getElementById(id).addEventListener("ready", listener);
-
-    }
-
-
-
 }

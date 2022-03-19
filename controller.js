@@ -7,10 +7,3 @@ const model = new Model();
 
 
 
-        view.callReadyListener(view.showSteps(), () =>{
-            model.checkBrowser();
-            localStorage.clear();
-            model.wnt.steps = 0;
-            model.calcStepsTaken(model.wnt.steps);
-        });
-
