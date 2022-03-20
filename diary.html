@@ -9,11 +9,11 @@
     <link rel="apple-touch-icon" sizes="128x128" href="img/icon101.png">
     <link rel="icon" sizes="192x192" href="img/icon101.png">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <link rel="stylesheet" href="diary.css">
+   <link rel="stylesheet" href="diary.css">
+
 
 </head>
 <body>
-
 
 
 
@@ -25,17 +25,48 @@
         Diary (to do list)
     </h1>
 </header>
-<form id="form">
-    <input type="text" class="diaryInput">
-    <button class="diaryButton" type="submit">Add  </button>
 
+<form id="calories">
+   <p id="caloriesText">
+       Enter your daily calories:
+   </p>
+    <input type="number" class="calorieInput">
 </form>
-<div class="cont">
-    <ul class="list">
 
-    </ul>
+
+
+
+
+<div class="container">
+    <h1>To-do list</h1>
+
+    <div class="myDIV">
+        <input type="text" id="myInput" placeholder="Add task">
+        <button type="submit" id="add-btn" onclick="newElement()" >Add</button>
+        <button type="submit" id="clear-btn" onclick="clearList()" >Clear List</button>
+
+    </div>
+
+
+    <div class="element-list">
+        <ul id="myUL">
+
+
+
+
+        </ul>
+    </div>
+
 </div>
 
+
+
+
+
+
+
+
+<script src="diaryTest.js"></script>
 
 <script>
     $(function(){
@@ -43,9 +74,9 @@
     });
 </script>
 
-
 <script src="model.js"></script>
 <script src="view.js"></script>
 <script src="controller.js"></script>
+
 </body>
 </html>

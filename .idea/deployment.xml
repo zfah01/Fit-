@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="Cafe" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="Cafe">
+        <serverdata>
+          <mappings>
+            <mapping deploy="317wellbeingApp" local="$PROJECT_DIR$" web="/317wellbeingApp" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>
