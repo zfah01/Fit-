@@ -2,7 +2,11 @@
 /shelf/
 /workspace.xml
 # Datasource local storage ignored files
+<<<<<<< HEAD
 /../../../../../../:\Users\ibrah\IdeaProjects\cs317-wellbeing-app-group-22\.idea/dataSources/
+=======
+/dataSources/
+>>>>>>> 418edec411f99f898e0c20463944d3e4f4b6e21a
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/

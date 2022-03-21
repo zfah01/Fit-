@@ -1,5 +1,10 @@
-body {
+html,body {
     margin: 0 0 55px 0;
+    font-family: 'Varela Round', sans-serif;
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
 }
 
 #topNav {
@@ -25,13 +30,22 @@ body {
     overflow-x: auto;
 }
 #options{
-    margin-left: 9%;
+    margin-right: 20%;
+}
+
+#notifications{
+    margin-left: 20%;
 }
 
 #appHeader{
     margin-top: 5%;
+    font-family: 'Varela Round', sans-serif;
     color: #1c9ad5;
 
+}
+
+#stepTitle{
+    margin-top: 5%;
 }
 
 .nav__link {
@@ -72,7 +86,6 @@ body {
     background-color: #ddf1fb;
 }
 
-
 .nav__link--active {
     color: #ddf1fb;
 }
@@ -88,3 +101,108 @@ body {
     color: white;
     font-family: 'Varela Round', sans-serif;
 }
+
+#stepPart{
+    margin-top: 40%;
+    margin-left: 15%
+}
+
+.panel {
+    display: inline-block;
+    background: #ffffff;
+    min-height: 100px;
+    width: 86%;
+    height: 100px;
+    font-family: 'Varela Round', sans-serif;
+    border: 1px solid #CDCDCD;
+    box-shadow: 0 1px 6px 0 darkgrey;
+    -webkit-box-shadow:0 1px 6px 0 darkgrey;
+    -moz-box-shadow:0 1px 6px 0 darkgrey;
+    border-radius:25px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.titles{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1em;
+    padding-top: 2%;
+    margin-left: 2%;
+    text-align: left;
+}
+.sections{
+    position: sticky;
+    top: 0;
+    left: 0;
+    margin-bottom: 2vh !important;
+    padding-bottom: 2vh;
+    box-shadow: 0 1px 6px 0 darkgrey;
+    /* border: 0.5px solid #CDCDCD; */
+    width: 100%;
+    background-color: #FFFFFF;
+    z-index: 10;
+
+    max-height: 100vh;
+
+    transition: all 0.5s;
+}
+
+.countCal{
+    text-align: center ;
+}
+
+#firstSec{
+    margin-top: 18%;
+}
+#stepsPanel{
+    margin-top: 2%;
+}
+
+#stepsSection{
+    text-align: center;
+    color:darkslateblue;
+}
+#calTitle{
+    margin-left:2%;
+}
+
+#miniHeading{
+    color:gray;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1rem;
+    margin-left: 2%;
+}
+
+.linkedPanels{
+    display: inline-block;
+    background: #ffffff;
+    min-height: 100px;
+    align-items: flex-start;
+    width: 40%;
+    height: 40%;
+    cursor: pointer;
+    font-family: 'Varela Round', sans-serif;
+    border: 1px solid #CDCDCD;
+    box-shadow: 0 1px 6px 0 darkgrey;
+    -webkit-box-shadow:0 1px 6px 0 darkgrey;
+    -moz-box-shadow:0 1px 6px 0 darkgrey;
+    border-radius:25px;
+    margin: 0.75vh 0 ;
+    padding: 2%;
+}
+.blogImg{
+    height: 3rem;
+    width: auto;
+    float:right;
+
+
+}
+#recipesPanel{
+    margin-left: 3%;
+}
+
+#workoutPanel{
+    margin-left: 3%;
+}
+
+

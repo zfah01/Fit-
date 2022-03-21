@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="Cafe" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="cafe" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
-      <paths name="Cafe">
+      <paths name="cafe">
         <serverdata>
           <mappings>
-            <mapping deploy="317wellbeingApp" local="$PROJECT_DIR$" web="/317wellbeingApp" />
+            <mapping deploy="317_xtgkvbwhduvzeuf" local="$PROJECT_DIR$" web="317_xtgkvbwhduvzeuf" />
           </mappings>
         </serverdata>
       </paths>
