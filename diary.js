@@ -14,7 +14,7 @@ function getTotalCals(){
     for(let i=0; i<arr.length; i++){
         if(parseInt(arr[i].value)){
             totCals+=parseInt(arr[i].value);
-            totCals-=parseInt(exerciseCals.value)
+           // totCals-=parseInt(exerciseCals.value)
         }
         document.getElementById("totCals").value=totCals;
 
