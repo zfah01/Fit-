@@ -4,16 +4,10 @@ body{
 }
 .fit{
     font-size: 70px;
-    margin: auto;
-
+    margin-top: 100px;
+    margin-bottom: -20px;
 }
-.welcome{
-    margin-top: 80px;
-    margin-bottom: 0;
-    font-size: 13px;
-    font-family: 'Varela Round', sans-serif;
 
-}
 
 .name{
     margin-left: auto;
@@ -47,7 +41,7 @@ body{
     margin-left: auto;
     margin-right: auto;
     font-size: 16px;
-    width: 300px;
+    width: 295px;
     border-color: #1c9ad5;
     background-color: white;
 }
@@ -76,15 +70,15 @@ body{
     margin-left: auto;
     margin-right: auto;
     font-size: 18px;
-    width: 299px;
-
+    width: 290px;
+    border-color: #89cff0;
 }
 .manwomen{
     margin-left: 30px;
     margin-right: auto;
     font-size: 18px;
 }
-button{
+.button{
     width: 100px;
     height: 25px;
     font-size: 15px;
@@ -92,9 +86,25 @@ button{
     font-family: 'Varela Round', sans-serif;
 
 }
+.button1{
+    width: 100px;
+    height: 25px;
+    font-size: 15px;
+    margin-left: -240px;
+    font-family: 'Varela Round', sans-serif;
+
+}
+.profile{
+    font-size: 13px;
+    margin-bottom: 10px;
+    font-family: 'Varela Round', sans-serif;
+    text-align: center;
+}
 .calories{
     margin-left: auto;
     margin-right: auto;
     font-size: 18px;
     width: 240px;
+    border-color: #1c9ad5;
+
 }

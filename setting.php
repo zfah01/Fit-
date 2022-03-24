@@ -2,14 +2,13 @@
 
 $name = strip_tags(isset($_POST["name"]) ? $_POST["name"] : "");
 $email = strip_tags(isset($_POST["email"]) ? $_POST["email"] : "");
-$password = strip_tags(isset($_POST["password"]) ? $_POST["password"] : "");
-$password1 = strip_tags(isset($_POST["password1"]) ? $_POST["password1"] : "");
 $dob = strip_tags(isset($_POST["dob"]) ? $_POST["dob"] : "");
 $gender = strip_tags(isset($_POST["gender"]) ? $_POST["gender"] : "");
 $height = strip_tags(isset($_POST["height"]) ? $_POST["height"] : "");
 $weight = strip_tags(isset($_POST["weight"]) ? $_POST["weight"] : "");
 $goals = strip_tags(isset($_POST["goals"]) ? $_POST["goals"] : "");
 $calories = strip_tags(isset($_POST["calories"]) ? $_POST["calories"] : "");
+
 $ispost = ($_SERVER['REQUEST_METHOD'] === 'POST');
 
 
@@ -27,12 +26,13 @@ $ispost = ($_SERVER['REQUEST_METHOD'] === 'POST');
     <link rel="icon" sizes="192x192" href="img/icon101.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="setting.css">
 </head>
 
 <body>
-<p class="welcome">Welcome to </p>
+
 <p class="fit"><img src="img/icon101.png" style="width:55px" >Fit+ </p>
+<p class="profile">Profile</p>
 <form method="post" action="register.php">
     <?php
 
@@ -48,10 +48,6 @@ $ispost = ($_SERVER['REQUEST_METHOD'] === 'POST');
         }
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             echo_error("Please enter a valid email address");
-            $validated = false;
-        }
-        if ($password !== $password1){
-            echo_error("Passwords do not match. Please re-enter them");
             $validated = false;
         }
         $dob_arr  = explode('-', $dob);
@@ -86,12 +82,11 @@ $ispost = ($_SERVER['REQUEST_METHOD'] === 'POST');
         }
 
         if ($validated){
-            $passwordhash = password_hash($password, PASSWORD_DEFAULT);
             $email = strtolower($email);
             if(check_if_email_exists($email)){
                 echo_error("This email address is already registered. Click <a href='login.php'>here</a> to login");
             } else {
-                $inserted = register_user($email, $passwordhash, $name, $dob, $height, $weight, $gender, $goals ,$calories);
+                $inserted = register_user($email, $name, $dob, $height, $weight, $gender, $goals, $calories);
                 if ($inserted) {
                     echo_info("Registration complete. Click <a href='login.php'>here</a> to login");
                     sendemail($email, "Registration Complete", "Welcome, ".$name);
@@ -105,10 +100,9 @@ $ispost = ($_SERVER['REQUEST_METHOD'] === 'POST');
     }
 
     ?>
+    <button type="submit" id="edit" class="button1"> Edit </button><br><br>
     <label>Name:<input type="text" class="name" name="name" minlength="3" maxlength="50" value="<?php echo $name;?>" required></label><br>
     <label>Email:<input type="email" class="email" name="email" value="<?php echo $email;?>" required></label><br>
-    <label>Password:<input type="password" class="pass" name="password" minlength="6" maxlength="50" required></label><br>
-    <label>Re-Password:<input type="password" class="pass1" name="password1" minlength="6" maxlength="50" required></label><br>
     <label>DoB:<input type="date" class="dob" name="dob" value="<?php echo $dob;?>" required></label><br>
     <label class="gender">Gender:
         <label><input class="manwomen" type="radio" name="gender" value="1" required <?php if ($gender === "1") {echo 'checked';}?>> Male</label>
@@ -126,75 +120,76 @@ $ispost = ($_SERVER['REQUEST_METHOD'] === 'POST');
         </select>
     </label><br><br>
 
-    <button type="submit" id="register"> Register </button><br><br>
+    <button type="submit" id="update" class="button"> Update </button>
+    <button type="submit" id="cancel" class="button"> Cancel </button><br>
 
-<?php
+    <?php
 
-function echo_error($errormsg){
-    echo "<p style='color:red;'>Error: $errormsg</p>";
-}
-
-function echo_info($infomsg){
-    echo "<p style='color:black;'>$infomsg</p>";
-}
-
-function check_if_email_exists($email){
-    $server = "devweb2021.cis.strath.ac.uk";
-    $username = "cs317madgroup22";
-    $password = "hig4Leic8Red";
-    $database = "cs317madgroup22";
-
-    $connection = new mysqli($server, $username, $password, $database);
-    $sql = "SELECT user_id FROM user_profile WHERE email=?"; // SQL with parameters
-    $stmt = $connection->prepare($sql);
-    $stmt->bind_param("s", $email);
-
-    if ($connection->connect_error){
-        echo "MySQL error";
-        return null;
-    } else {
-        $stmt->execute();
-        $result = $stmt->get_result(); // get the mysqli result
-        if ($connection->error)
-            echo_error("Could not contact database: " . $connection->error);
-        $connection->close();
-        return $result->num_rows > 0;
+    function echo_error($errormsg){
+        echo "<p style='color:red;'>Error: $errormsg</p>";
     }
 
-}
-
-
-function register_user($email, $passwordhash, $name, $dob, $height, $weight, $gender, $goal, $calories){
-    $server = "devweb2021.cis.strath.ac.uk";
-    $username = "cs317madgroup22";
-    $password = "hig4Leic8Red";
-    $database = "cs317madgroup22";
-
-    $connection = new mysqli($server, $username, $password, $database);
-    $sql = "INSERT INTO user_profile (email, password, name, dob, height, weight, gender, goal, calories) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"; // SQL with parameters
-    $stmt = $connection->prepare($sql);
-    $stmt->bind_param("ssssddiii", $email, $passwordhash, $name, $dob, $height, $weight, $gender, $goal, $calories);
-
-    if ($connection->connect_error){
-        echo "MySQL error";
-        return null;
-    } else {
-        $stmt->execute();
-        if ($connection->error)
-            echo_error("Could not contact database: " . $connection->error);
-        $connection->close();
-        return $stmt->affected_rows == 1;
+    function echo_info($infomsg){
+        echo "<p style='color:black;'>$infomsg</p>";
     }
 
-}
+    function check_if_email_exists($email){
+        $server = "devweb2021.cis.strath.ac.uk";
+        $username = "cs317madgroup22";
+        $password = "hig4Leic8Red";
+        $database = "cs317madgroup22";
 
-function sendemail($email, $emailsubject, $emailbody){
-    $headers = 'From: FitPlus <info@fitplus.usg.uk>' . "\r\n" .
-        'Reply-To: info@fitplus.usg.uk' . "\r\n";
-    mail($email, $emailsubject, $emailbody, $headers);
-}
+        $connection = new mysqli($server, $username, $password, $database);
+        $sql = "SELECT user_id FROM user_profile WHERE email=?"; // SQL with parameters
+        $stmt = $connection->prepare($sql);
+        $stmt->bind_param("s", $email);
 
-?>
+        if ($connection->connect_error){
+            echo "MySQL error";
+            return null;
+        } else {
+            $stmt->execute();
+            $result = $stmt->get_result(); // get the mysqli result
+            if ($connection->error)
+                echo_error("Could not contact database: " . $connection->error);
+            $connection->close();
+            return $result->num_rows > 0;
+        }
+
+    }
+
+
+    function register_user($email, $name, $dob, $height, $weight, $gender, $goal, $calories){
+        $server = "devweb2021.cis.strath.ac.uk";
+        $username = "cs317madgroup22";
+        $password = "hig4Leic8Red";
+        $database = "cs317madgroup22";
+
+        $connection = new mysqli($server, $username, $password, $database);
+        $sql = "INSERT INTO user_profile (email, name, dob, height, weight, gender, goal, calories) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"; // SQL with parameters
+        $stmt = $connection->prepare($sql);
+        $stmt->bind_param("ssssddiii", $email, $name, $dob, $height, $weight, $gender, $goal, $calories);
+
+        if ($connection->connect_error){
+            echo "MySQL error";
+            return null;
+        } else {
+            $stmt->execute();
+            if ($connection->error)
+                echo_error("Could not contact database: " . $connection->error);
+            $connection->close();
+            return $stmt->affected_rows == 1;
+        }
+
+    }
+
+    function sendemail($email, $emailsubject, $emailbody){
+        $headers = 'From: FitPlus <info@fitplus.usg.uk>' . "\r\n" .
+            'Reply-To: info@fitplus.usg.uk' . "\r\n";
+        mail($email, $emailsubject, $emailbody, $headers);
+    }
+
+    ?>
 
 </form>
 </body>

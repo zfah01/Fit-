@@ -53,7 +53,7 @@ if ($authenticated && isset($_SESSION["user_id"]))
     <link rel="stylesheet" href="login.css">
 
 </head>
-<h1>Fit+</h1>
+<h1><img src="img/icon101.png" style="width:60px"  >Fit+</h1>
 <body>
 <?php
 if ($errormsg)
