@@ -1,4 +1,5 @@
 'use strict';
+/*globals $:false */
 
 
     let wnt = {};
@@ -7,12 +8,13 @@
     wnt.steps = localStorage.steps;
 
 
-//check if device is mobile
+    //check if device is mobile
     if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i)
     ) {
         wnt.mobile = true;
     }
 
+    //using geolocation to automatically update user location
     if (wnt.mobile === true) {
         navigator.geolocation.watchPosition(getPosition, positionError,
             {'enableHighAccuracy': true, 'timeout': 10000, 'maximumAge': 20000});
@@ -31,6 +33,7 @@
         });
     });
 
+    //save steps between page loads and refreshes
     function saveSteps() {
         let steps = document.getElementById("steps").value;
         localStorage.setItem("steps", steps);
@@ -54,12 +57,13 @@
         }
 
     }
-
+    //get user position
     function getPosition(pos) {
         let steps = pos.coords.speed / 0.762;
         calcStepsTaken(steps);
     }
 
+    //if error occurs alert user
     function positionError(err) {
         if (err.code === 1) {
             alert("User denied geolocation.");
@@ -72,12 +76,14 @@
         }
     }
 
+    //calculate steps detected
     function calcStepsTaken(steps) {
         wnt.steps = wnt.steps + steps;
         localStorage.steps = wnt.steps;
         $('#steps').html('<span>' + Math.round(wnt.steps) + '/6000 Steps</span>');
     }
 
+    //calculate calories remaining
     function calcCaloriesRemaining(){
 
     }
