@@ -1,3 +1,14 @@
+<?php
+session_start();
+$authenticated = isset($_SESSION["authenticated"]) && $_SESSION["authenticated"];
+if (!($authenticated && isset($_SESSION["user_id"])))
+{
+    header("Location: login.php");
+    die();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,8 +60,6 @@
 
         </div>
         </div>
-    </div>
-
 
 
 <script>
