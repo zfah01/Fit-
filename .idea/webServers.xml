@@ -2,10 +2,10 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="797d7e12-497f-40be-a85d-01925e35c62b" name="cafe" url="http://devweb2021.cis.strath.ac.uk/~wsb19173/">
-        <fileTransfer rootFolder="/home/wsb19173/DEVWEB/2021" accessType="SFTP" host="cafe.cis.strath.ac.uk" port="22" sshConfigId="8adc59ff-9d54-4624-a7d8-a3156168c43d" sshConfig="wsb19173@cafe.cis.strath.ac.uk:22 password">
+      <webServer id="059556d1-c041-475e-bc10-11e9a5034b0d" name="Cafe" url="http://devweb2021.cis.strath.ac.uk/~pwb19182/">
+        <fileTransfer rootFolder="/home/pwb19182/DEVWEB/2021" accessType="SFTP" host="cafe.cis.strath.ac.uk" port="22" sshConfigId="b9755573-95fc-407f-beef-2f9eee07d4aa" sshConfig="pwb19182@cafe.cis.strath.ac.uk:22 password">
           <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
         </fileTransfer>
       </webServer>

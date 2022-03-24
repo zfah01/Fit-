@@ -5,6 +5,4 @@ class View {
 
     constructor() {
     }
-
-
 }
