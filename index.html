@@ -17,64 +17,6 @@
 <div id="nav-placeholder">
 
 </div>
-<header id="title">
-    <h1>
-        Diary
-    </h1>
-</header>
-<div id="Calories">
-    <form>
-        <p id="caloriesText">
-            Enter your daily calorie Allowance:
-        </p>
-        <input type="number" class="calorieInput" id="dailyCals">
-    </form>
-</div>
-<div id="otherEntries">
-    <form>
-
-        <div id="headings">
-            <label id="Meal/Activity">Meal/Activity</label>
-            <label id="calsHeading">Calories</label>
-        </div>
-
-        <div id="breakfast">
-            <label for="Breakfast">Breakfast</label>
-            <input type="text" id="breakfastText" placeholder="Add Meal">
-            <input onblur="getTotalCals()" type="text" id="breakfastInput" name="cals" placeholder="0">
-        </div>
-        <div id="Lunch">
-            <lable for="Lunch">Lunch</lable>
-            <input type="text" id="lunchText" placeholder="Add Meal">
-            <input onblur="getTotalCals()" type="text" id="lunchInput" name="cals" placeholder="0">
-        </div>
-        <div id="Dinner">
-            <label for="Dinner">Dinner</label>
-            <input type="text" id="dinnerText" placeholder="Add Meal">
-            <input onblur="getTotalCals()" type="text" id="dinnerInput" name="cals" placeholder="0">
-        </div>
-        <div id="Snacks">
-            <label for="Snacks">Snacks</label>
-            <input type="text" id="snackText" placeholder="Add Meal">
-            <input onblur="getTotalCals()" type="text" id="snackInput" name="cals" placeholder="0">
-        </div>
-        <div id="Exercise">
-            <label for="Exercise">Exercise</label>
-            <input type="text" id="ExerciseText" placeholder="Add exercise/meal">
-            <input onblur="getTotalCals()" type="text" id="exerciseInput" name="cals" placeholder="0">
-        </div>
-
-        <div id="totalCalories">
-            <lable for="totalCalories">Total Calories consumed</lable>
-            <input type="text" id="totCals" name="total" placeholder="0">
-        </div>
-    </form>
-</div>
-<p id="message">
-<h3>
-
-</h3>
-</p>
 
 <script>
     $(function(){
