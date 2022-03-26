@@ -5,4 +5,17 @@ class View {
 
     constructor() {
     }
+
+
+    showSteps(){
+        return "steps";
+    }
+
+    callReadyListener(id , listener){
+        document.getElementById(id).addEventListener("ready", listener);
+
+    }
+
+
+
 }
