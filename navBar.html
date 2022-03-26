@@ -15,15 +15,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<script>
+    function confirmLogout() {
+        if (confirm("Are you sure you want to log out?")) {
+            window.location = 'logout.php';
+        }
+    }
+</script>
 <nav id="topNav" class="navbar">
-    <a href="#" class="headNav__link" id="options">
-        <i  class="material-icons topIcons options nav__icon">reorder</i>
-        <span class="nav__text"></span>
-    </a>
-    <span id="appHeader"><b>Fit+</b></span>
+<!--    <a href="#" class="headNav__link" id="options">-->
+<!--        <i  class="material-icons topIcons options nav__icon">reorder</i>-->
+<!--        <span class="nav__text"></span>-->
+<!--    </a>-->
     <a href="#" class="headNav__link" id="notifications">
         <i class="material-icons topIcons nav__icon">notifications</i>
         <span class="nav__text"></span>
+    </a>
+
+    <span id="appHeader"><b>Fit+</b></span>
+
+    <a onclick="confirmLogout()" class="headNav__link">
+        <i class="material-icons topIcons nav__icon">logout</i>
     </a>
 </nav>
 
@@ -43,6 +55,10 @@
     <a href="alarm.html" class="nav__link">
         <i class="material-icons nav__icon">alarm</i>
         <span class="nav__text">Alarm</span>
+    </a>
+    <a href="setting.php" class="nav__link">
+        <i class="material-icons nav__icon">settings</i>
+        <span class="nav__text">Settings</span>
     </a>
 </nav>
 

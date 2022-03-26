@@ -1,13 +1,23 @@
 <?php
+session_start();
+$authenticated = isset($_SESSION["authenticated"]) && $_SESSION["authenticated"];
+if (!($authenticated && isset($_SESSION["user_id"])))
+{
+    header("Location: login.php");
+    die();
+}
+$user_id = $_SESSION["user_id"];
 
-$name = strip_tags(isset($_POST["name"]) ? $_POST["name"] : "");
-$email = strip_tags(isset($_POST["email"]) ? $_POST["email"] : "");
-$dob = strip_tags(isset($_POST["dob"]) ? $_POST["dob"] : "");
-$gender = strip_tags(isset($_POST["gender"]) ? $_POST["gender"] : "");
-$height = strip_tags(isset($_POST["height"]) ? $_POST["height"] : "");
-$weight = strip_tags(isset($_POST["weight"]) ? $_POST["weight"] : "");
-$goals = strip_tags(isset($_POST["goals"]) ? $_POST["goals"] : "");
-$calories = strip_tags(isset($_POST["calories"]) ? $_POST["calories"] : "");
+$user_profile = read_user($user_id)->fetch_row();
+
+$name = strip_tags(isset($_POST["name"]) ? $_POST["name"] : $user_profile[1]);
+$email = strip_tags(isset($_POST["email"]) ? $_POST["email"] : $user_profile[0]);
+$dob = strip_tags(isset($_POST["dob"]) ? $_POST["dob"] : $user_profile[2]);
+$gender = strip_tags(isset($_POST["gender"]) ? $_POST["gender"] : $user_profile[5]);
+$height = strip_tags(isset($_POST["height"]) ? $_POST["height"] : $user_profile[3]);
+$weight = strip_tags(isset($_POST["weight"]) ? $_POST["weight"] : $user_profile[4]);
+$goals = strip_tags(isset($_POST["goals"]) ? $_POST["goals"] : $user_profile[6]);
+$calories = strip_tags(isset($_POST["calories"]) ? $_POST["calories"] : $user_profile[7]);
 
 $ispost = ($_SERVER['REQUEST_METHOD'] === 'POST');
 
@@ -17,23 +27,24 @@ $ispost = ($_SERVER['REQUEST_METHOD'] === 'POST');
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0",shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0", shrink-to-fit=no" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-
-    <title>Fit+</title>
+    <title>Settings</title>
     <link rel="apple-touch-icon" sizes="128x128" href="img/icon101.png">
     <link rel="icon" sizes="192x192" href="img/icon101.png">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <link rel="stylesheet" href="setting.css">
 </head>
 
 <body>
+<div id="nav-placeholder">
+
+</div>
 
 <p class="fit"><img src="img/icon101.png" style="width:55px" >Fit+ </p>
-<p class="profile">Profile</p>
-<form method="post" action="register.php">
+<p class="profile">Settings</p>
+<form method="post" action="setting.php">
     <?php
 
     if ($ispost){
@@ -83,24 +94,15 @@ $ispost = ($_SERVER['REQUEST_METHOD'] === 'POST');
 
         if ($validated){
             $email = strtolower($email);
-            if(check_if_email_exists($email)){
-                echo_error("This email address is already registered. Click <a href='login.php'>here</a> to login");
-            } else {
-                $inserted = register_user($email, $name, $dob, $height, $weight, $gender, $goals, $calories);
-                if ($inserted) {
-                    echo_info("Registration complete. Click <a href='login.php'>here</a> to login");
-                    sendemail($email, "Registration Complete", "Welcome, ".$name);
-                    die();
-                } else {
-                    echo_error("Registration failed. Please try again");
-                }
-            }
+            $updated = update_user($user_id, $email, $name, $dob, $height, $weight, $gender, $goals, $calories);
+            if ($updated)
+                echo "<script>alert('Record updated successfully');</script>";
+            else
+                echo "<script>alert('Update failed');</script>";
         }
-
     }
-
     ?>
-    <button type="submit" id="edit" class="button1"> Edit </button><br><br>
+<!--    <button type="submit" id="edit" class="button1"> Edit </button><br><br>-->
     <label>Name:<input type="text" class="name" name="name" minlength="3" maxlength="50" value="<?php echo $name;?>" required></label><br>
     <label>Email:<input type="email" class="email" name="email" value="<?php echo $email;?>" required></label><br>
     <label>DoB:<input type="date" class="dob" name="dob" value="<?php echo $dob;?>" required></label><br>
@@ -110,7 +112,7 @@ $ispost = ($_SERVER['REQUEST_METHOD'] === 'POST');
     </label><br>
     <label>Height (cm):<input type="number" class="height" name="height" min="90" max="300" step="0.1" value="<?php echo $height;?>" required></label><br>
     <label>Weight (kg):<input type="number" class="weight" name="weight" min="30" max="300" step="0.1" value="<?php echo $weight;?>" required></label><br>
-    <label>Calories Goal:<input type="number" class="calories" name="calories" min="500" max="4000" step="any" value="<?php echo $calories;?>" required></label><br>
+    <label>Calories(kcals) Goal:<input type="number" class="calories" name="calories" min="500" max="4000" step="any" value="<?php echo $calories;?>" required></label><br>
     <label class="goal">Goal:
         <select name="goals" class="goal" id="goals">
             <option value="1" <?php if ($goals === "1") {echo 'selected';}?>>Lose weight</option>
@@ -120,8 +122,7 @@ $ispost = ($_SERVER['REQUEST_METHOD'] === 'POST');
         </select>
     </label><br><br>
 
-    <button type="submit" id="update" class="button"> Update </button>
-    <button type="submit" id="cancel" class="button"> Cancel </button><br>
+    <button type="submit" id="update" class="button"> Save </button>
 
     <?php
 
@@ -133,42 +134,43 @@ $ispost = ($_SERVER['REQUEST_METHOD'] === 'POST');
         echo "<p style='color:black;'>$infomsg</p>";
     }
 
-    function check_if_email_exists($email){
+    function read_user($user_id){
         $server = "devweb2021.cis.strath.ac.uk";
         $username = "cs317madgroup22";
         $password = "hig4Leic8Red";
         $database = "cs317madgroup22";
 
         $connection = new mysqli($server, $username, $password, $database);
-        $sql = "SELECT user_id FROM user_profile WHERE email=?"; // SQL with parameters
+        $sql = "select email, name, dob, height, weight, gender, goal, calories from user_profile where user_id=?"; // SQL with parameters
         $stmt = $connection->prepare($sql);
-        $stmt->bind_param("s", $email);
+        $stmt->bind_param("i", $user_id);
 
         if ($connection->connect_error){
             echo "MySQL error";
             return null;
         } else {
             $stmt->execute();
-            $result = $stmt->get_result(); // get the mysqli result
             if ($connection->error)
                 echo_error("Could not contact database: " . $connection->error);
+            $result = $stmt->get_result();
             $connection->close();
-            return $result->num_rows > 0;
+            return $result;
         }
 
     }
 
-
-    function register_user($email, $name, $dob, $height, $weight, $gender, $goal, $calories){
+    function update_user($user_id, $email, $name, $dob, $height, $weight, $gender, $goal, $calories){
         $server = "devweb2021.cis.strath.ac.uk";
         $username = "cs317madgroup22";
         $password = "hig4Leic8Red";
         $database = "cs317madgroup22";
 
         $connection = new mysqli($server, $username, $password, $database);
-        $sql = "INSERT INTO user_profile (email, name, dob, height, weight, gender, goal, calories) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"; // SQL with parameters
+        $sql = "UPDATE user_profile 
+        SET email=?, name=?, dob=?, height=?, weight=?, gender=?, goal=?, calories=?
+        where user_id=?"; // SQL with parameters
         $stmt = $connection->prepare($sql);
-        $stmt->bind_param("ssssddiii", $email, $name, $dob, $height, $weight, $gender, $goal, $calories);
+        $stmt->bind_param("sssddiiii", $email, $name, $dob, $height, $weight, $gender, $goal, $calories, $user_id);
 
         if ($connection->connect_error){
             echo "MySQL error";
@@ -192,5 +194,14 @@ $ispost = ($_SERVER['REQUEST_METHOD'] === 'POST');
     ?>
 
 </form>
+
+<script>
+    $(function(){
+        $("#nav-placeholder").load("navBar.html");
+    });
+</script>
+<script src="model.js"></script>
+<script src="view.js"></script>
+<script src="controller.js"></script>
 </body>
 </html>
