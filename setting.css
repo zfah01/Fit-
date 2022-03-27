@@ -12,6 +12,7 @@ body{
 .name{
     margin-left: auto;
     margin-right: auto;
+    margin-top: 2px;
     font-size: 18px;
     width: 280px;
     border-color: #1c9ad5;
@@ -20,6 +21,7 @@ body{
     margin-left: auto;
     margin-right: auto;
     font-size: 18px;
+    margin-top: 2px;
     width: 285px;
     border-color: #1c9ad5;
 }
@@ -28,11 +30,13 @@ body{
     margin-right: auto;
     font-size: 18px;
     width: 255px;
+    margin-top: 2px;
     border-color: #1c9ad5;
 }
 .pass1{
     margin-left: auto;
     margin-right: auto;
+    margin-top: 2px;
     font-size: 18px;
     width: 230px;
     border-color: #1c9ad5;
@@ -40,6 +44,7 @@ body{
 .dob{
     margin-left: auto;
     margin-right: auto;
+    margin-top: 2px;
     font-size: 16px;
     width: 295px;
     border-color: #1c9ad5;
@@ -47,7 +52,8 @@ body{
 }
 .gender{
     margin-left: auto;
-    margin-right: 55px;
+    margin-right: 65px;
+    margin-top: 2px;
     font-size: 18px;
     border-color: #1c9ad5;
 
@@ -55,6 +61,7 @@ body{
 .height{
     margin-left: auto;
     margin-right: auto;
+    margin-top: 2px;
     font-size: 18px;
     width: 240px;
     border-color: #1c9ad5;
@@ -63,6 +70,7 @@ body{
     margin-left: auto;
     margin-right: auto;
     font-size: 18px;
+    margin-top: 2px;
     width: 240px;
     border-color: #1c9ad5;
 }
@@ -70,10 +78,12 @@ body{
     margin-left: auto;
     margin-right: auto;
     font-size: 18px;
+    margin-top: 2px;
     width: 290px;
     border-color: #89cff0;
 }
 .manwomen{
+    margin-top: 2px;
     margin-left: 30px;
     margin-right: auto;
     font-size: 18px;
@@ -104,7 +114,9 @@ body{
     margin-left: auto;
     margin-right: auto;
     font-size: 18px;
-    width: 210px;
+    width: 180px;
     border-color: #1c9ad5;
+    margin-top: 2px;
+
 
 }
