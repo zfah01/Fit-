@@ -29,9 +29,9 @@ if (!($authenticated && isset($_SESSION["user_id"])))
     <div id="firstSec" class="sections">
     <h2 id="calTitle" class="titles">Calories Remaining</h2>
     <div  class="panel">
-        <h3 class="countCal"><span id="goal"></span> - <span id="food"></span> +
-            <span id="exercise"></span> = <span id="remaining"></span> </h3>
-        <h3 class="countCal">Goal  Food  Exercise  Remaining</h3>
+        <h3 id="calCalc" class="countCal"><span id="goal"></span>   -   <span id="food"></span>   +
+             <span id="exercise"></span>           =         <span id="remaining"></span> </h3>
+        <span class="calcTag" id="g">Goal</span> <span class="calcTag" id="f">Food</span> <span class="calcTag" id="e">Exercise</span> <span class="calcTag" id="r">Remaining</span>
     </div>
     </div>
 

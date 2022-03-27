@@ -85,6 +85,32 @@
 
     //calculate calories remaining
     function calcCaloriesRemaining(){
+        let caloricGoal =  document.getElementById("calGoal").value;//2500
+        let breakfast = document.getElementById("breakfastInput").value;//300
+        let lunch = document.getElementById("lunchInput").value;//350
+        let dinner = document.getElementById("dinnerInput").value;//400
+        let snack = document.getElementById("snackInput").value;//50
+        let exercise = document.getElementById("exerciseInput").value;//300
+        let remaining;
+        let food;
+
+        food = breakfast + lunch + dinner + snack
+
+        remaining = (caloricGoal - food) + exercise
+
+        document.getElementById("goal").innerHTML = caloricGoal;
+        document.getElementById("food").innerHTML = food;
+        document.getElementById("exercise").innerHTML = exercise;
+        document.getElementById("remaining").innerHTML = remaining;
+
+        if (!caloricGoal || !food|| !exercise){
+            caloricGoal = 0;
+            food= 0;
+            exercise= 0;
+
+
+        }
 
     }
+calcCaloriesRemaining();
 
