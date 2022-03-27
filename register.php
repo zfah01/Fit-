@@ -116,7 +116,7 @@ $ispost = ($_SERVER['REQUEST_METHOD'] === 'POST');
     </label><br>
     <label>Height (cm):<input type="number" class="height" name="height" min="90" max="300" step="0.1" value="<?php echo $height;?>" required></label><br>
     <label>Weight (kg):<input type="number" class="weight" name="weight" min="30" max="300" step="0.1" value="<?php echo $weight;?>" required></label><br>
-    <label>Calories Goal:<input type="number" class="calories" name="calories" min="500" max="4000" step="any" value="<?php echo $calories;?>" required></label><br>
+    <label>Calories(kcals) Goal:<input type="number" class="calories" name="calories" min="500" max="4000" step="any" value="<?php echo $calories;?>" required></label><br>
     <label class="goal">Goal:
         <select name="goals" class="goal" id="goals">
             <option value="1" <?php if ($goals === "1") {echo 'selected';}?>>Lose weight</option>
@@ -127,6 +127,7 @@ $ispost = ($_SERVER['REQUEST_METHOD'] === 'POST');
     </label><br><br>
 
     <button type="submit" id="register"> Register </button><br><br>
+    <button type="button" id="back" onclick="location.href='login.php';">Back</button><br><br>
 
 <?php
 
