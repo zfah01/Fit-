@@ -85,7 +85,7 @@
 
     //calculate calories remaining
     function calcCaloriesRemaining(){
-        let caloricGoal =  document.getElementById("calGoal").value;//2500
+        let caloricGoal =  document.getElementsByClassName("calories")[0].value;//2500
         let breakfast = document.getElementById("breakfastInput").value;//300
         let lunch = document.getElementById("lunchInput").value;//350
         let dinner = document.getElementById("dinnerInput").value;//400
