@@ -30,8 +30,11 @@
         <input type="number" class="calorieInput" id="dailyCals">
     </form>
 </div>
+<div id="error">
+
+</div>
 <div id="otherEntries">
-    <form>
+    <form id="form">
 
         <div id="headings">
             <label id="Meal/Activity">Meal/Activity</label>
@@ -41,27 +44,27 @@
         <div id="breakfast">
             <label for="Breakfast">Breakfast</label>
             <input type="text" id="breakfastText" placeholder="Add Meal">
-            <input onblur="getTotalCals()" type="number" id="breakfastInput" name="cals" placeholder="0">
+            <input onblur="getTotalCals()" type="number" id="breakfastInput" name="cals" placeholder="0" min="0" >
         </div>
         <div id="Lunch">
             <lable for="Lunch">Lunch</lable>
             <input type="text" id="lunchText" placeholder="Add Meal">
-            <input onblur="getTotalCals()" type="number" id="lunchInput" name="cals" placeholder="0">
+            <input onblur="getTotalCals()" type="number" id="lunchInput" name="cals" placeholder="0" min="0">
         </div>
         <div id="Dinner">
             <label for="Dinner">Dinner</label>
             <input type="text" id="dinnerText" placeholder="Add Meal">
-            <input onblur="getTotalCals()" type="number" id="dinnerInput" name="cals" placeholder="0">
+            <input onblur="getTotalCals()" type="number" id="dinnerInput" name="cals" placeholder="0" min="0">
         </div>
         <div id="Snacks">
             <label for="Snacks">Snacks</label>
             <input type="text" id="snackText" placeholder="Add Meal">
-            <input onblur="getTotalCals()" type="number" id="snackInput" name="cals" placeholder="0">
+            <input onblur="getTotalCals()" type="number" id="snackInput" name="cals" placeholder="0" min="0">
         </div>
         <div id="Exercise">
             <label for="Exercise">Exercise</label>
             <input type="text" id="ExerciseText" placeholder="Add exercise/meal">
-            <input onblur="getTotalCals()" type="number" id="exerciseInput" name="cals" placeholder="0">
+            <input onblur="getTotalCals()" type="number" id="exerciseInput" name="cals" placeholder="0" min="0">
         </div>
 
         <div id="totalCalories">
@@ -90,3 +93,4 @@
 
 </body>
 </html>
+

@@ -28,19 +28,19 @@
 </nav>
 
 <nav id="bottomNav" class="navbar">
-    <a href="index.html" class="nav__link">
+    <a href="index.php" class="nav__link">
         <i class="material-icons nav__icon">home</i>
         <span class="nav__text">Home</span>
     </a>
-    <a href="diary.html" class="nav__link nav__link--active">
+    <a href="diary.php" class="nav__link nav__link--active">
         <i class="material-icons nav__icon">class</i>
         <span class="nav__text">Diary</span>
     </a>
-    <a href="run.html" class="nav__link">
+    <a href="run.php" class="nav__link">
         <i class="material-icons nav__icon">directions_run</i>
         <span class="nav__text">Run</span>
     </a>
-    <a href="alarm.html" class="nav__link">
+    <a href="alarm.php" class="nav__link">
         <i class="material-icons nav__icon">alarm</i>
         <span class="nav__text">Alarm</span>
     </a>
