@@ -122,7 +122,7 @@ $ispost = ($_SERVER['REQUEST_METHOD'] === 'POST');
         </select>
     </label><br><br>
 
-    <button type="submit" id="update" class="button"> Save </button>
+    <button type="submit" id="update" class="button" > Save </button>
 
     <?php
 

@@ -127,6 +127,7 @@ $ispost = ($_SERVER['REQUEST_METHOD'] === 'POST');
     </label><br><br>
 
     <button type="submit" id="register"> Register </button><br><br>
+    <button type="button" id="back" onclick="location.href='login.php';">Back</button><br><br>
 
 <?php
 
