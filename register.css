@@ -1,0 +1,103 @@
+body{
+    text-align: center;
+    font-family: 'Varela Round', sans-serif;
+}
+.fit{
+    font-size: 70px;
+    margin: auto;
+
+}
+.welcome{
+    margin-top: 80px;
+    margin-bottom: 0;
+    font-size: 13px;
+    font-family: 'Varela Round', sans-serif;
+
+}
+
+.name{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    width: 280px;
+    border-color: #1c9ad5;
+}
+.email{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    width: 285px;
+    border-color: #1c9ad5;
+}
+.pass{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    width: 255px;
+    border-color: #1c9ad5;
+}
+.pass1{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    width: 230px;
+    border-color: #1c9ad5;
+}
+.dob{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    width: 300px;
+    border-color: #1c9ad5;
+    background-color: white;
+}
+.gender{
+    margin-left: auto;
+    margin-right: 65px;
+    font-size: 18px;
+    border-color: #1c9ad5;
+
+}
+.height{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    width: 240px;
+    border-color: #1c9ad5;
+}
+.weight{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    width: 240px;
+    border-color: #1c9ad5;
+}
+.goal{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    width: 299px;
+
+}
+.manwomen{
+    margin-left: 30px;
+    margin-right: auto;
+    font-size: 18px;
+}
+button{
+    width: 100px;
+    height: 25px;
+    font-size: 15px;
+    margin: auto;
+    font-family: 'Varela Round', sans-serif;
+
+}
+.calories{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    width: 180px;
+    border-color: #1c9ad5;
+
+
+}
