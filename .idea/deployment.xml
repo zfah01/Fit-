@@ -5,7 +5,7 @@
       <paths name="Cafe">
         <serverdata>
           <mappings>
-            <mapping deploy="/cs317-wellbeing-app-group-22-diary/cs317-wellbeing-app-group-22-diary" local="$PROJECT_DIR$/.." web="/cs317-wellbeing-app-group-22-diary" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
