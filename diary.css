@@ -1,0 +1,129 @@
+html,body {
+    margin: 0 0 55px 0;
+    font-family: 'Varela Round', sans-serif;
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+
+html,body {
+    margin: 0 0 55px 0;
+    font-family: 'Varela Round', sans-serif;
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+#title{
+    padding-top: 3rem;
+    font-family: 'Varela Round', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+#Calories{
+    padding: 2rem;
+    font-family: 'Varela Round', sans-serif;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+
+}
+#dailyCals{
+    border-radius: 6px;
+}
+#otherEntries{
+    font-family: 'Varela Round', sans-serif;
+    font-size:15px;
+    margin-bottom: 2rem;
+    display: block;
+}
+#headings{
+    margin-left: 5rem;
+    font-weight: bold;
+    text-underline: #1c9ad5;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+#calsHeading{
+    margin-left: 4rem;
+}
+
+
+#breakfastText{
+    margin-left: 1rem;
+    border-radius: 6px;
+    width: 10vh;
+    height: 3vh;
+    margin-bottom: 2rem;
+}
+
+#breakfastInput{
+    margin-left: 3.5rem;
+    width: 10vh;
+    height: 3vh;
+    border-radius: 6px;
+}
+#lunchText{
+    margin-left: 3rem;
+    border-radius: 6px;
+    width: 10vh;
+    height: 3vh;
+    margin-bottom: 2rem;
+}
+#lunchInput{
+    margin-left: 3rem;
+    width:10vh;
+    height: 3vh;
+    border-radius: 6px;
+}
+#dinnerText{
+    margin-left: 3rem;
+    border-radius: 6px;
+    width: 10vh;
+    height: 3vh;
+    margin-bottom: 2rem;
+}
+#dinnerInput{
+    width:10vh;
+    height: 3vh;
+    margin-left: 3rem;
+    border-radius: 6px;
+
+}
+#snackText{
+    margin-left: 3rem;
+    border-radius: 6px;
+    width: 10vh;
+    height: 3vh;
+    margin-bottom: 2rem;
+}
+#snackInput{
+    margin-left: 3rem;
+    width:10vh;
+    height: 3vh;
+    border-radius: 6px;
+
+}
+#ExerciseText{
+    margin-left:3rem;
+    border-radius: 6px;
+    width: 10vh;
+    height: 3vh;
+    margin-bottom: 1rem;
+}
+#exerciseInput{
+    margin-bottom: 2rem;
+    margin-left: 2.8rem;
+    width: 10vh;
+    height: 3vh;
+    border-radius: 6px;
+}
+#totCals{
+    height: 3vh;
+    margin-left: 1rem;
+    width: 10vh;
+    border-radius: 6px;
+}

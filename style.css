@@ -149,8 +149,16 @@ html,body {
 
 .countCal{
     text-align: center ;
+
+}
+#calCalc{
+    color: darkslateblue;
 }
 
+.calcTag{
+    color:grey;
+    font-size: 1em;
+}
 #firstSec{
     margin-top: 18%;
 }
@@ -205,4 +213,33 @@ html,body {
     margin-left: 3%;
 }
 
+#g{
+    padding-left: 17%;
+}
 
+#f{
+    padding-left: 6.3%;
+}
+
+#e{
+    padding-left: 3%;
+}
+
+#r{
+    padding-left: 2%;
+}
+#goal{
+    padding-left: 2%;
+}
+
+#food{
+    padding-right: 1.5%;
+}
+#exercise{
+    padding-right: 1%;
+    padding-left: 1%;
+}
+
+#remaining{
+    padding-right: 1.5%;
+}
