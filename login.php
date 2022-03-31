@@ -62,7 +62,7 @@ if ($errormsg)
 <form method="post" action="login.php">
 <label class="empw">Email: <input type="text" class="email_login" name="email" required></label> <br>
 <label class="empw">Password: <input type="password" class="password_login" name="pw"></label><br><br>
-<button type="submit" id="login" name="login"> login </button><br><br>
+<button type="submit" id="login" name="login"> Login </button><br><br>
 </form>
 <button id="register" onclick="location.href='register.php';" type="button"> Register </button>
 
