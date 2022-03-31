@@ -149,8 +149,16 @@ html,body {
 
 .countCal{
     text-align: center ;
+
+}
+#calCalc{
+    color: darkslateblue;
 }
 
+.calcTag{
+    color:grey;
+    font-size: 1em;
+}
 #firstSec{
     margin-top: 18%;
 }
@@ -205,4 +213,71 @@ html,body {
     margin-left: 3%;
 }
 
+#g{
+    padding-left: 17%;
+}
 
+#f{
+    padding-left: 6.3%;
+}
+
+#e{
+    padding-left: 3%;
+}
+
+#r{
+    padding-left: 2%;
+}
+#goal{
+    padding-left: 2%;
+}
+
+#food{
+    padding-right: 1.5%;
+}
+#exercise{
+    padding-right: 1%;
+    padding-left: 1%;
+}
+
+#remaining{
+    padding-right: 1.5%;
+}
+
+/* Alarms */
+.alarms{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 13px;
+    position: absolute;  left:30%; top:20%;
+    height: 5%;
+    border-radius: 50%;
+    text-align: center;
+    padding: 40px 50px;
+    background: #89cff0;
+}
+.alarms:hover{
+    background-color: #ddf1fb;
+}
+.ViewAlarms{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 20px;
+    position: absolute; left:30%; top:45%;
+    height: 5%;
+    border-radius: 50%;
+    text-align: center;
+    padding:40px 50px;
+    background: #89cff0;
+}
+.ViewAlarms:hover{
+    background-color: #ddf1fb;
+}
+.divv{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;"
+}
+.inputt{
+    outline: none;
+    border: 2px solid gray;
+}
