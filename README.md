@@ -1,4 +1,4 @@
-# CS317 Wellbeing app- group 22
+# Fit Plus Health App
 
 
 
